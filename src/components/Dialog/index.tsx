@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useContext, useEffect } from 'react';
+import React, { createContext, ReactNode, useContext, useEffect } from 'react';
 
 interface DialogContextType {
   isOpen: boolean;
@@ -30,7 +30,7 @@ export const useDialog = () => {
 
 export function Dialog({ children, isOpen, onClose }: DialogProps) {
   // handle outside click
-  const handleBackDropClick = (event: MouseEvent) => {
+  const handleBackDropClick: React.MouseEventHandler<HTMLDivElement> = (event) => {
     if (event.target === event.currentTarget) {
       onClose();
     }
